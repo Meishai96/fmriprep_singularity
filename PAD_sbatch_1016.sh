@@ -22,9 +22,8 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 ## job task ID: $SLURM_ARRAY_TASK_ID = {1..160}
 
 subject_name=`sed "${SLURM_ARRAY_TASK_ID}q;d" sublist.txt`
-# session_name=`sed "${SLURM_ARRAY_TASK_ID}q;d" sessionlist.txt`
 
-#export STUDY=/work/cbhlab/Meishan/PAD_pred_dataset
+
 BIDS_DIR="$STUDY/bids"
 DERIVS_DIR="$STUDY/derivatives"
 LOCAL_FREESURFER_DIR="$STUDY/derivatives/freesurfer"
@@ -44,8 +43,6 @@ FMRIPREP_HOST_CACHE=$WF_FILES/.cache/fmriprep
 mkdir -p ${TEMPLATEFLOW_HOST_HOME}
 mkdir -p ${FMRIPREP_HOST_CACHE}
 
-#derivatives folder
-#mkdir -p ${BIDS_DIR}/${DERIVS_DIR}
 
 # Designate a templateflow bind-mount point
 export SINGULARITYENV_TEMPLATEFLOW_HOME="/templateflow"
